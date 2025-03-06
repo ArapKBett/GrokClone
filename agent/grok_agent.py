@@ -40,3 +40,9 @@ class GrokAgent:
             prompt = f"User: {user_input}\nGrok: "
             response = self.generate_response(prompt)
             return apply_personality(response)
+
+class GrokAgent:
+    def __init__(self):
+        self.tokenizer = GPT2Tokenizer.from_pretrained("./grok_finetuned")
+        self.model = GPT2LMHeadModel.from_pretrained("./grok_finetuned")
+        self.model.eval()
