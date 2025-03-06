@@ -25,3 +25,15 @@ def search_x_posts(query):
         return result
     except Exception as e:
         return f"Error searching X: {str(e)}"
+        
+        # Add to agent/tools.py
+def generate_image(prompt):
+    # Placeholder: Real implementation would use Stable Diffusion or DALL·E API
+    return f"Imagine I generated an image for '{prompt}'! (Add a real image model to see it.)"
+
+# Update process_input in grok_agent.py
+def process_input(self, user_input):
+    if "generate image" in user_input.lower():
+        prompt = user_input.replace("generate image", "").strip()
+        return generate_image(prompt)
+    # ... rest of the method unchanged
